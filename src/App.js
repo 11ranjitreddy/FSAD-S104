@@ -2,14 +2,11 @@ import React from 'react';
 
 function App() {
   return (
-    <div>
-      <h1>Hello, FSAD-S104!</h1>
-      <p>This is your custom React App.</p>
+    <div style={{ textAlign: 'center', paddingTop: '50px' }}>
+      <h1>Hello, Ranjit! 👋</h1>
+      <p>Welcome to your first React App 🚀</p>
     </div>
   );
 }
 
 export default App;
-
-
-
