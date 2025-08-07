@@ -2,20 +2,21 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches:
-      - main  # or 'master', depending on your branch
+    branches: [ main ]
 
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-
-      - name: Build (Optional)
-        run: echo "Skip this if not needed"
-
-      - name: Deploy to GitHub Pages
+      - uses: actions/checkout@v2
+      
+      - name: Install and build
+        run: |
+          npm install
+          npm run build
+          
+      - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./  # Replace with your build output folder if using React/Vue/etc.
+          publish_dir: ./build
